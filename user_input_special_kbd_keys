@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+use Term::RawInput;
+
+sub out {
+    my $out = shift;
+    print "[ $out ]\n";
+}
+
+do {
+    my ($keystroke,$special) = rawInput("> ");
+    if($special eq 'ESC') {
+        print "\n";
+        exit;
+    } elsif($special eq 'ENTER') {
+        out($keystroke);
+    } elsif($special ne 'DELETE') {
+    if ($special eq 'UPARROW') {
+        print ' UP  ';
+    } elsif ($special eq 'DOWNARROW') {
+        print ' DOWN ';
+        } elsif ($keystroke ne '') {
+    # Normal keypress
+            out($keystroke);
+        } else {
+    # Unknown special
+            print "'$special' key is not associated\n";
+        }
+    }
+} while(1);

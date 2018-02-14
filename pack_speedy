@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /nas
+tar -czvf Pack_DB_s_p_e_e_d_y.tar.gz help iot scripts settings
+cd -

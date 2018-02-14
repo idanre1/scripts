@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Create the git
+echo "*** Preparing to create repo"
+git init
+echo "*** Enter GIT repo name"
+read REPO
+hub create $REPO
+echo "*** Cleaning it up"
+rm -rf .git
+
+echo "*** Setting user credentials"
+git config --global user.email "idanre1@gmx.com"
+git config --global user.name "Idan Regev"
+
+echo "*** init GIT"
+git init
+echo "*** Setting remote server, please enter URL: e.g. https://github.com/USER/example.git"
+read URL
+git remote add origin $URL
+echo "*** Checking comm"
+git remote -v
+

@@ -1,0 +1,73 @@
+#! /usr/bin/perl
+
+#==========================================================================
+# @file
+# Check directory disk usage
+#
+# Sotred from big to small with readable sizes
+# Created by Idan Regev (~iregev)
+#==========================================================================
+use strict;
+use warnings;
+
+use POSIX;
+#use Smart::Comments;
+
+# find target
+if (@ARGV < 1) {
+    $ARGV[0] = '*';
+}
+
+# Check directory structure
+my $command;
+my @columns;
+
+foreach my $path (@ARGV) {
+    chdir $path;
+    $path = `pwd`;
+    ### $path
+    $command = `du -sk * | sort -nr`;
+
+    calc_path(@columns);
+}
+
+sub calc_path {
+    my $commands = shift;
+    my @columns = split(/\n/, $command);
+#    my @columns = split(/(\n|\s)/, $command);
+    my $total = 0;
+
+# store them on hash table
+    foreach my $line (@columns)
+    {
+        my @temp = split /\s/, $line;
+        if ($line =~ /^\d/)
+        {
+            my $filename = substr($line,length($temp[0]));
+            $filename =~ s/^\s+//; #remove leading spaces
+            my $uid = (stat $filename)[4];
+            my $user = (getpwuid $uid)[0];
+            my $size = file_size($temp[0]);
+            $total = $total + $temp[0];
+            printf "%-7s %-10s %s \n", $size, $user, $filename;
+        }
+    }
+
+    $total = file_size($total);
+    printf "-------------------------------------------------------------\n";
+    printf "Total disk usage: $total\n";
+    return;
+}
+
+
+sub file_size {
+  my $size = shift;
+  my @name = ("Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB");
+
+  my $i = $size ? floor(log($size * 1024)/log(1024)) : 0;
+  my $n = $size ? ceil($size/1024**($i-1)) : 0;
+
+  return $n . $name[$i];
+}
+
+

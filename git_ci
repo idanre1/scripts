@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "*** Which files to add?"
+read ADD
+git add $ADD
+
+echo "*** Commit comment"
+read COMMENT
+git commit -m "$COMMENT"
+
+echo "*** Deliver"
+git push origin master
+
