@@ -26,7 +26,7 @@ foreach my $path (@ARGV) {
     chdir $path;
     $path = `pwd`;
     ### $path
-    $command = `du -sk * | sort -nr`;
+    $command = `du -sk .[!.]* * | sort -nr`;
 
     calc_path(@columns);
 }
