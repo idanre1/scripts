@@ -5,7 +5,13 @@ echo "*** Preparing to create repo"
 git init
 echo "*** Enter GIT repo name"
 read REPO
-hub create $REPO
+ARCH=`uname -m`
+if [[ "$ARCH" = 'x86_64' ]]
+then
+    hub_x64 create $REPO
+else
+    hub_aarch64 create $REPO
+fi
 echo "*** Cleaning it up"
 rm -rf .git
 
