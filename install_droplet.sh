@@ -5,6 +5,8 @@ cd ~
 aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 
 $aptyes update
+$aptyes upgrade
+$aptyes dist-upgrade
 
 #Git + fetch workspace from git
 # $aptyes install git libcurl4-openssl-dev
@@ -27,9 +29,7 @@ echo source ~/settings/vimrc >> ~/.vimrc
 # -----------------------------------------
 # Python3
 # -----------------------------------------
-$aptyes install python3 python-is-python3 python3-pip python3-tk virtualenv
-pip3 install python-dateutil # parse iso format dates before python 3.7
-pip3 install numpy pandas matplotlib seaborn
+$aptyes install python3 python3-pip python3-tk virtualenv
 virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
 
 # default pyhton env init
@@ -37,7 +37,6 @@ source ~/settings/python_init.sh
 cd $py3bin
 source activate
 pip -V
-pip install python-dateutil # parse iso format dates before python 3.7
-pip install numpy pandas matplotlib seaborn
-# pip install jupyterlab
+# part of pandas: pip install python-dateutil # parse iso format dates before python 3.7
+pip install numpy pandas matplotlib seaborn jupyterlab
 deactivate
