@@ -1,5 +1,6 @@
 #!/bin/bash
-# Usage: wget https://raw.githubusercontent.com/idanre1/scripts/master/install_droplet.sh
+# Usage: 
+#wget https://raw.githubusercontent.com/idanre1/scripts/master/install_droplet.sh
 cd ~
 aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 
