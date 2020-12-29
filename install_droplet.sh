@@ -30,9 +30,11 @@ echo source ~/settings/vimrc >> ~/.vimrc
 # Python3
 # -----------------------------------------
 $aptyes install python3 python3-pip python3-tk virtualenv
-virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
+# virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
+virtualenv -p /usr/bin/python3 ~/py3env
 # Allow for user libs
-ln -s /nas/wsl_lib ~/py3env/lib/python3.6/site-packages/wsl_lib
+PYVER=`ls -1 py3env/lib/ | grep "python" | head -1`
+ln -s /nas/wsl_lib ~/py3env/lib/$PYVER/site-packages/wsl_lib
 
 # default pyhton env init
 source ~/settings/python_init.sh
