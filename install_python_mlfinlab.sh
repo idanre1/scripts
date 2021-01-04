@@ -16,5 +16,5 @@ sudo apt-get install -y cython
 # (sometimes?) end up in the original Python installation.
 pip install cython --prefix="~/py3mlfinlab" cython 
 
-pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask
+pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance
 #fastparquet cannot come with mlfinlab, since it requires new pandas
