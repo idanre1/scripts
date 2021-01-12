@@ -22,7 +22,7 @@ sudo ln -s /home/$USER /home/idan
 sudo timedatectl set-timezone Asia/Jerusalem
 
 # easy linux
-$aptyes install source-highlight curl install libsnappy-dev
+$aptyes install source-highlight curl libsnappy-dev
 echo source ~/settings/bashrc >> ~/.bashrc
 echo source ~/settings/vimrc >> ~/.vimrc
 
