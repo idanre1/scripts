@@ -30,9 +30,8 @@ echo source ~/settings/vimrc >> ~/.vimrc
 # Python3
 # -----------------------------------------
 $aptyes install python3 python3-pip python3-tk virtualenv
-virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
-# Allow for user libs
-ln -s /nas/wsl_lib ~/py3env/lib/python3.6/site-packages/wsl_lib
+# virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
+virtualenv -p /usr/bin/python3 ~/py3env
 
 # default pyhton env init
 source ~/settings/python_init.sh
@@ -42,3 +41,7 @@ pip -V
 # part of pandas: pip install python-dateutil # parse iso format dates before python 3.7
 pip install numpy pandas fastparquet python-snappy matplotlib seaborn jupyterlab
 deactivate
+
+# Allow for user libs (must come after a single pip install)
+PYVER=`ls -1 ~/py3env/lib/ | grep "python" | head -1`
+ln -s /nas/wsl_lib ~/py3env/lib/$PYVER/site-packages/wsl_lib
