@@ -17,6 +17,7 @@ pip install cython --prefix="~/py3mlfinlab" cython
 
 pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance
 #fastparquet cannot come with mlfinlab, since it requires new pandas
+pip install nbformat==4.2.0 # for plotly
 deactivate
 
 # Allow for user libs (must come after a single pip install)
