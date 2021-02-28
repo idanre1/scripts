@@ -15,8 +15,9 @@ sudo apt-get install -y cython
 # (sometimes?) end up in the original Python installation.
 pip install cython --prefix="~/py3mlfinlab" cython 
 
-pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance
+pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance #cufflinks
 #fastparquet cannot come with mlfinlab, since it requires new pandas
+#cufflinks already own nbformat, no need to exact nbformat in that case
 pip install nbformat==4.2.0 # for plotly
 deactivate
 
