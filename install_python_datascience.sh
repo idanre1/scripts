@@ -7,3 +7,5 @@ pip -V
 
 #packages
 pip install missingno
+pip install plotly
+pip install tables #hd5 for pandas
