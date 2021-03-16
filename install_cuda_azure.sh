@@ -16,5 +16,16 @@ rm -f /tmp/${CUDA_REPO_PKG}
 sudo apt-get update
 sudo apt-get install cuda-drivers
 
+# default pyhton env init
+source ~/settings/python_init.sh
+cd $py3bin
+source activate
+pip -V
+#packages
+pip install gpustat
+
+
+
 # Make sure it is intalled correctly
 nvidia-smi
+
