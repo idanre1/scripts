@@ -1,7 +1,12 @@
 #!/bin/bash
+# python 3.8 is required
+aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
+$aptyes update
+$aptyes install python3.8
+
 # new virtualenv is needed
 # virtualenv -p /usr/bin/python3 --no-site-packages ~/py3mlfinlab
-virtualenv -p /usr/bin/python3 ~/py3mlfinlab
+virtualenv -p /usr/bin/python3.8 ~/py3mlfinlab
 
 # default pyhton env init
 source ~/settings/python_init.sh
@@ -18,9 +23,24 @@ pip install cython --prefix="~/py3mlfinlab" cython
 pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance #cufflinks
 #fastparquet cannot come with mlfinlab, since it requires new pandas
 #cufflinks already own nbformat, no need to exact nbformat in that case
-pip install nbformat==4.2.0 # for plotly
+pip install nbformat #==4.2.0 # for plotly
 deactivate
 
 # Allow for user libs (must come after a single pip install)
 PYVER=`ls -1 ~/py3mlfinlab/lib/ | grep "python" | head -1`
 ln -s /nas/wsl_lib ~/py3mlfinlab/lib/$PYVER/site-packages/wsl_lib
+
+# Patching mlfinlab for privacy
+OBJ=`find /nas/py3mlfinlab/lib | grep devadarsh.py`
+FUNCS=`cat $OBJ | grep "def "`
+
+\rm -rf $OBJ
+echo "For loop:"
+#Set the field separator to new line
+IFS=$'\n'
+for item in $FUNCS
+do
+    echo "  $item"
+    echo "$item" >> $OBJ
+    echo "  pass" >> $OBJ
+done
