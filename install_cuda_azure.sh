@@ -1,6 +1,7 @@
 #!/bin/bash
 # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup
 # https://developer.download.nvidia.com/compute/cuda/repos/
+aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 
 # Make sure GPU is in
 lspci | grep -i NVIDIA
@@ -13,8 +14,8 @@ sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub 
 rm -f /tmp/${CUDA_REPO_PKG}
 
-sudo apt-get update
-sudo apt-get install cuda-drivers
+$aptyes update
+$aptyes install cuda-drivers
 
 # default pyhton env init
 source ~/settings/python_init.sh
@@ -22,7 +23,7 @@ cd $py3bin
 source activate
 pip -V
 #packages
-pip install gpustat
+pip install gpustat fastai
 
 
 
