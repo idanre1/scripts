@@ -23,7 +23,7 @@ cd $py3bin
 source activate
 pip -V
 #packages
-pip install gpustat fastai
+pip install gpustat fastai graphviz fastbook
 
 
 
