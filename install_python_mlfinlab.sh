@@ -24,6 +24,7 @@ pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance 
 #fastparquet cannot come with mlfinlab, since it requires new pandas
 #cufflinks already own nbformat, no need to exact nbformat in that case
 pip install nbformat #==4.2.0 # for plotly
+pip install hyperopt pymongo
 deactivate
 
 # Allow for user libs (must come after a single pip install)
