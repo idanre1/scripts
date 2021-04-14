@@ -20,11 +20,24 @@ sudo apt-get install -y cython
 # (sometimes?) end up in the original Python installation.
 pip install cython --prefix="~/py3mlfinlab" cython 
 
+#-------------------------------------
+# Install main (head)
+#-------------------------------------
 pip install mlfinlab numpy pandas pyarrow python-snappy seaborn dask mplfinance #cufflinks
 #fastparquet cannot come with mlfinlab, since it requires new pandas
 #cufflinks already own nbformat, no need to exact nbformat in that case
 pip install nbformat #==4.2.0 # for plotly
 pip install hyperopt pymongo
+
+# addins:
+#-------------
+# pytorch (CPU)
+#pip install torch==1.8.1+cpu torchvision==0.9.1+cpu torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+# pytorch (GPU)
+#pip install torch torchvision torchaudio
+#-------------------------------------
+# Install main (tail)
+#-------------------------------------
 deactivate
 
 # Allow for user libs (must come after a single pip install)
