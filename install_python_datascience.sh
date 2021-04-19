@@ -11,6 +11,7 @@ pip install plotly
 pip install tables #hd5 for pandas
 pip install pyarrow #parquet
 pip install datashader holoviews # bigdata scatter plots
+pip install PyWavelets
 
 # orca for plotly
 # cd ~
