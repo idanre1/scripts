@@ -22,7 +22,7 @@ sudo apt-get install -y cython
 
 # packages
 pip install numpy pandas zmq apscheduler ib_insync TA-Lib matplotlib mplfinance sklearn alpaca_trade_api sklearn lxml pyarrow ipykernel alpha_vantage
-pip install fake_useragent finam_export pandas_datareader
+pip install fake_useragent finam_export pandas_datareader numba
 deactivate
 
 # Allow for user libs (must come after a single pip install)
