@@ -25,6 +25,7 @@ sudo timedatectl set-timezone Asia/Jerusalem
 $aptyes install source-highlight curl libsnappy-dev
 echo source ~/settings/bashrc >> ~/.bashrc
 echo source ~/settings/vimrc >> ~/.vimrc
+sudo sh -c "echo 'set background=dark' >> /root/.vimrc"
 
 # -----------------------------------------
 # Python3
