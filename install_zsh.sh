@@ -18,4 +18,8 @@ mv ~/.zshrc ~/.zshrc.vanilla
 ln -s ~/settings/zshrc ~/.zshrc
 
 # Making default shell
-sudo usermod -s /bin/zsh $USER
+# For not making default, put some cmd arg
+# Making default shell
+if [ $# -eq 0 ]; then
+  sudo usermod -s /bin/zsh $USER
+fi
