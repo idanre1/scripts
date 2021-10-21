@@ -1,4 +1,5 @@
 #!/bin/bash
+# ***source the file*** for install correctly
 # Fresh miniconda
 cd ~
 CONDA_FILE=miniconda.sh
