@@ -13,6 +13,6 @@ rm ~/$CONDA_FILE
 source ~/miniconda3/etc/profile.d/conda.sh
 # https://rapids.ai/start.html#rapids-release-selector
 conda create -n rapids-21.10 -c rapidsai -c nvidia -c conda-forge \
-    rapids-blazing=21.10 python=3.8 cudatoolkit=11.2
+    rapids-blazing=21.10 python=3.8 cudatoolkit=11.2 -y
 
 #https://medium.com/rapids-ai/plotly-census-viz-dashboard-powered-by-rapids-1503b3506652

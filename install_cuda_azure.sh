@@ -23,7 +23,8 @@ CUDAVER=`ls -1 /usr/local| grep cuda- | head -1`
 CUDALIB="/usr/local/$CUDAVER/lib64"
 sudo sh -c "echo include $CUDALIB >> /etc/ld.so.conf"
 sudo ldconfig
-
+CUDA_BIN="/usr/local/$CUDAVER/bin"
+sh -c "echo PATH=.:$PATH:$CUDA_BIN >> /home/$USER/.bashrc"
 
 # default pyhton env init
 source ~/settings/python_init.sh
