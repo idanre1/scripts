@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://arnon.dk/check-cuda-installed/
 # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup
 # https://developer.download.nvidia.com/compute/cuda/repos/
 # for non azure vm:
