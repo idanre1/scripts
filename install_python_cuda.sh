@@ -23,6 +23,6 @@ conda install -c conda-forge mamba -y # installs much faster than conda
 
 # aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 #might not needed ? $aptyes install azure-cli 
-mamba install -c conda-forge dvc dvc-azure -y
+mamba install -c conda-forge dvc dvc-azure chardet -y
 mamba install -c conda-forge  pyAesCrypt -y
 mamba install -c conda-forge  seaborn missingno mplfinance -y
