@@ -21,7 +21,8 @@ conda create -n rapids-21.10 -c rapidsai -c nvidia -c conda-forge \
 conda activate rapids-21.10
 conda install -c conda-forge mamba -y # installs much faster than conda
 
-aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
+# aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 #might not needed ? $aptyes install azure-cli 
 mamba install -c conda-forge dvc dvc-azure -y
 mamba install -c conda-forge  pyAesCrypt -y
+mamba install -c conda-forge  seaborn missingno mplfinance -y
