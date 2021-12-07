@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+import ast
+import sys
+from pathlib import Path
+import argparse
+
+def top_level_functions(body):
+    return (f for f in body if isinstance(f, ast.FunctionDef))
+
+def parse_ast(filename):
+    with open(filename, "rt") as file:
+        return ast.parse(file.read(), filename=filename)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--path", help="path to package")
+    args = parser.parse_args()    
+
+    pgk=Path(args.path).name
+
+    files = []
+    for path in Path(args.path).rglob('*.py'):
+        files.append(path)    
+
+    with open(f'{args.path}/__init__.py', 'w') as f:
+
+        for filename in files:
+            tree = parse_ast(filename)
+            for func in top_level_functions(tree.body):
+                print(f'from {pgk}.{filename.stem} import {func.name}', file=f)
