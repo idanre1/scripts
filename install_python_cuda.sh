@@ -11,14 +11,19 @@ rm ~/$CONDA_FILE
 
 # Create cuda env
 source ~/miniconda3/etc/profile.d/conda.sh
+PYVER=rapids-21.10
 # https://rapids.ai/start.html#rapids-release-selector
-conda create -n rapids-21.10 -c rapidsai -c nvidia -c conda-forge \
+conda create -n $PYVER -c rapidsai -c nvidia -c conda-forge \
     rapids-blazing=21.10 python=3.8 cudatoolkit=11.2 -y
 
 #https://medium.com/rapids-ai/plotly-census-viz-dashboard-powered-by-rapids-1503b3506652
 
+# site libs
+ln -s /nas/python_lib /nas/miniconda3/envs/$PYVER/lib/python3.8/site-packages/site-packages.pth
+
+
 # Add own stuff
-conda activate rapids-21.10
+conda activate $PYVER
 conda install -c conda-forge mamba -y # installs much faster than conda
 
 # aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
