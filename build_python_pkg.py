@@ -16,7 +16,7 @@ if __name__ == "__main__":
     parser.add_argument("-p", "--path", help="path to package")
     args = parser.parse_args()    
 
-    pgk=Path(args.path).name
+    pgk=Path(args.path).resolve().name
 
     files = []
     for path in Path(args.path).rglob('*.py'):
@@ -27,4 +27,12 @@ if __name__ == "__main__":
         for filename in files:
             tree = parse_ast(filename)
             for func in top_level_functions(tree.body):
-                print(f'from {pgk}.{filename.stem} import {func.name}', file=f)
+                hier = filename.relative_to(args.path)
+                hier = f'{hier.parent}'.replace('/','.')
+                if (hier == '.'):
+                    hier = "" # In case there is no subfolders
+                else:
+                    hier = hier + '.'
+                print(f'from {pgk}.{hier}{filename.stem} import {func.name}', file=f)
+
+# from stats_math.src.tests.py.tests import white_test
