@@ -12,9 +12,10 @@ rm ~/$CONDA_FILE
 # Create cuda env
 source ~/miniconda3/etc/profile.d/conda.sh
 PYVER=rapids-21.10
+CUDA_VER=11.2
 # https://rapids.ai/start.html#rapids-release-selector
 conda create -n $PYVER -c rapidsai -c nvidia -c conda-forge \
-    rapids-blazing=21.10 python=3.8 cudatoolkit=11.2 -y
+    rapids-blazing=21.10 python=3.8 cudatoolkit=$CUDA_VER -y
 
 #https://medium.com/rapids-ai/plotly-census-viz-dashboard-powered-by-rapids-1503b3506652
 
@@ -31,3 +32,4 @@ conda install -c conda-forge mamba -y # installs much faster than conda
 mamba install -c conda-forge dvc dvc-azure chardet -y
 mamba install -c conda-forge  pyAesCrypt -y
 mamba install -c conda-forge  seaborn missingno mplfinance -y
+mamba install -c pytorch pytorch torchvision torchaudio cudatoolkit=$CUDA_VER -y
