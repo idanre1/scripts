@@ -26,7 +26,7 @@ conda create -n $ENV_NAME -c rapidsai -c nvidia -c conda-forge \
 #https://medium.com/rapids-ai/plotly-census-viz-dashboard-powered-by-rapids-1503b3506652
 
 # site libs
-ln -s /nas/python_lib /nas/miniconda3/envs/$ENV_NAME/lib/python3.8/site-packages/site-packages.pth
+ln -s /nas/settings/site-packages.pth /nas/miniconda3/envs/$ENV_NAME/lib/python3.8/site-packages/site-packages.pth
 
 
 # Add own stuff

@@ -16,4 +16,6 @@ pip install PyWavelets
 # pytorch
 pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 # fastai
-pip install fastai
+pip install fastai tsai
+
+ln -s /nas/settings/site-packages.pth /nas/py3env/lib/python3.9/site-packages/site-packages.pth
