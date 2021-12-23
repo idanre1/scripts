@@ -6,15 +6,15 @@ $aptyes install zsh
 
 # attended install
 # Don't run zsh at the end, since more installations are needed afterwards
-env RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+env RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # zsh Plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Add flavors
-mv ~/.zshrc ~/.zshrc.vanilla
+# KEEP_ZSHRC mv ~/.zshrc ~/.zshrc.vanilla
 ln -s ~/settings/zshrc ~/.zshrc
 
 # Making default shell
@@ -23,3 +23,6 @@ ln -s ~/settings/zshrc ~/.zshrc
 if [ $# -eq 0 ]; then
   sudo usermod -s /bin/zsh $USER
 fi
+
+# fix permissions on shared permises
+chmod -R g-w,o-w ~/.oh-my-zsh
