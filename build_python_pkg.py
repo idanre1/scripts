@@ -13,7 +13,7 @@ def parse_ast(filename):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--path", help="path to package")
+    parser.add_argument("-p", "--path", required=True, help="path to package")
     args = parser.parse_args()    
 
     pgk=Path(args.path).resolve().name
