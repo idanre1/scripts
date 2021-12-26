@@ -30,9 +30,10 @@ sudo sh -c "echo 'set background=dark' >> /root/.vimrc"
 # -----------------------------------------
 # Python3
 # -----------------------------------------
+mkdir -p ~/Envs
 $aptyes install python3 python3-pip python3-tk virtualenv
 # virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
-virtualenv -p /usr/bin/python3 ~/py3env
+virtualenv -p /usr/bin/python3 ~/Envs/py3env
 
 # default pyhton env init
 source ~/settings/python_init.sh
@@ -44,5 +45,5 @@ pip install numpy pandas fastparquet python-snappy matplotlib seaborn jupyterlab
 deactivate
 
 # Allow for user libs (must come after a single pip install)
-PYVER=`ls -1 ~/py3env/lib/ | grep "python" | head -1`
-ln -s /nas/wsl_lib ~/py3env/lib/$PYVER/site-packages/wsl_lib
+PYVER=`ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
+ln -s /nas/settings/site-packages.pth /nas/Envs/py3env/lib/$PYVER/site-packages/site-packages.pth
