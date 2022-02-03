@@ -23,7 +23,7 @@ conda activate $ENV_NAME
 conda install mamba -y # installs much faster than conda
 
 #https://anaconda.org/pyston/repo
-mamba install pandas -y
+mamba install pandas pyarrow -y
 mamba install seaborn missingno mplfinance -y
 
 # fastai
