@@ -5,7 +5,9 @@ from pathlib import Path
 import argparse
 
 def top_level_functions(body):
-    return (f for f in body if isinstance(f, ast.FunctionDef))
+    def cond(d):
+        return isinstance(d, ast.FunctionDef) and (not d.name.startswith('_'))
+    return (f for f in body if cond(f))
 
 def parse_ast(filename):
     with open(filename, "rt") as file:
