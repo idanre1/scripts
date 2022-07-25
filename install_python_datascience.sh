@@ -14,5 +14,5 @@ pip install datashader holoviews # bigdata scatter plots
 pip install PyWavelets
 pip install "dvc[all]"
 
-PYVER=`ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
+PYVER=`\ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
 ln -s /nas/settings/site-packages.pth /nas/Envs/py3env/lib/$PYVER/site-packages/site-packages.pth

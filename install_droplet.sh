@@ -45,5 +45,5 @@ pip install numpy pandas fastparquet python-snappy matplotlib seaborn jupyterlab
 deactivate
 
 # Allow for user libs (must come after a single pip install)
-PYVER=`ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
+PYVER=`\ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
 ln -s /nas/settings/site-packages.pth /nas/Envs/py3env/lib/$PYVER/site-packages/site-packages.pth
