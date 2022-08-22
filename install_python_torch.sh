@@ -7,7 +7,8 @@ source activate
 pip -V
 
 # pytorch
-pip install fastai tsai torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+# pip install fastai tsai torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install fastai tsai torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 # fastai
 # pip install fastai tsai
 
