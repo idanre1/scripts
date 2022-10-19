@@ -6,7 +6,9 @@ import argparse
 
 def top_level_functions(body):
     def cond(d):
-        return isinstance(d, ast.FunctionDef) and (not d.name.startswith('_'))
+        f = isinstance(d, ast.FunctionDef) and (not d.name.startswith('_'))
+        c = isinstance(d, ast.ClassDef) and (not d.name.startswith('_'))
+        return  f or c
     return (f for f in body if cond(f))
 
 def parse_ast(filename):
