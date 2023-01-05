@@ -1,0 +1,7 @@
+pyyaml
+azure-cli
+apscheduler
+fake_useragent
+zmq
+tqdm
+sqlalchemy
