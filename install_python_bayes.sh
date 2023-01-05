@@ -30,6 +30,8 @@ mamba install -c conda-forge pyAesCrypt gpustat -y
 # User libs
 # ---------------------------------------------------------
 mamba install -c conda-forge "pymc>=4" numpyro cudatoolkit -y #??? cudatoolkit=$CUDA_VER
+mamba install -c conda-forge python-graphviz bambi -y
+mamba install tqdm ipywidgets -y
 
 # Verify jax is using gpu
 # You will see: backend and then devices
