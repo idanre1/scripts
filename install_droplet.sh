@@ -41,7 +41,7 @@ cd $py3bin
 source activate
 pip -V
 # part of pandas: pip install python-dateutil # parse iso format dates before python 3.7
-pip install numpy pandas fastparquet python-snappy matplotlib seaborn jupyterlab
+pip install numpy pandas pyarrow matplotlib seaborn jupyterlab "dvc[all]" pyAesCrypt #fastparquet python-snappy
 deactivate
 
 # Allow for user libs (must come after a single pip install)
