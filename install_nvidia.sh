@@ -18,7 +18,7 @@ url="https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/
 CUDA_FILE='cuda-toolkit.run'
 wget -O $CUDA_FILE $url
 sudo sh $CUDA_FILE # MAKE SURE TO unclick driver installation!
-#\rm -f $CUDA_FILE
+\rm -f $CUDA_FILE
 
 #https://developer.nvidia.com/rdp/cudnn-archive
 #TODO manual install
@@ -26,3 +26,6 @@ sudo sh $CUDA_FILE # MAKE SURE TO unclick driver installation!
 #    there is a manual steps for adding h files for cudnn
 
 echo "*** Dont forget to manually install cudnn!"
+
+# Verify installation sucessfully:
+# https://xcat-docs.readthedocs.io/en/stable/advanced/gpu/nvidia/verify_cuda_install.html
