@@ -10,13 +10,13 @@ $aptyes dist-upgrade
 
 #Git + fetch workspace from git
 # $aptyes install git libcurl4-openssl-dev
-git clone https://github.com/idanre1/settings.git
-git clone https://github.com/idanre1/scripts.git
-# git clone https://github.com/idanre1/ubuntu_scripts.git
+git clone https://github.com/$USER/settings.git
+git clone https://github.com/$USER/scripts.git
+# git clone https://github.com/$USER/ubuntu_scripts.git
 
 #Making nice linux
 sudo ln -s ~ /nas
-sudo ln -s /home/$USER /home/idan
+#sudo ln -s /home/$USER /home/idan
 
 # set timezone
 sudo timedatectl set-timezone Asia/Jerusalem
