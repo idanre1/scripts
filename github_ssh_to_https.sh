@@ -20,7 +20,7 @@ if [ -z "$REPO" ]; then
   exit
 fi
 
-NEW_URL="https://github.com:$USER/$REPO.git"
+NEW_URL="https://github.com/$USER/$REPO.git"
 echo "Changing repo url from "
 echo "  '$REPO_URL'"
 echo "      to "
