@@ -22,3 +22,6 @@ $aptyes install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docke
 
 # See it works
 sudo docker run hello-world
+
+# Apply user with root privilages when running docker commands
+# sudo usermod -aG docker $USER
