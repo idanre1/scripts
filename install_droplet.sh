@@ -9,7 +9,7 @@ $aptyes upgrade
 $aptyes dist-upgrade
 
 #Git + fetch workspace from git
-# $aptyes install git libcurl4-openssl-dev
+$aptyes install git #libcurl4-openssl-dev
 git clone https://github.com/idanre1/settings.git
 git clone https://github.com/idanre1/scripts.git
 # git clone https://github.com/idanre1/ubuntu_scripts.git
