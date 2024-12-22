@@ -11,7 +11,7 @@ $aptyes install r-base
 # ./install2.r ggplot
 
 # Install packages
-sudo R -e 'install.packages(c("ggplot", "IRkernel"))'
+sudo R -e 'install.packages(c("ggplot2", "IRkernel","lazyeval"))'
 sudo R -e 'install.packages(c("fitHeavyTail"))'
 
 # TODO: Make sure you in the virtual env!
