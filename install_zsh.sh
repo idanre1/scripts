@@ -17,7 +17,7 @@ git clone --depth=1 https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 # Add flavors
 mv ~/.zshrc ~/.zshrc.vanilla
-ln -s ~/settings/zshrc ~/.zshrc
+echo source ~/settings/zshrc >> ~/.zshrc
 
 # Making default shell
 # For not making default, put some cmd arg

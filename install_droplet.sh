@@ -12,7 +12,7 @@ $aptyes dist-upgrade
 $aptyes install git #libcurl4-openssl-dev
 git clone https://github.com/idanre1/settings.git
 git clone https://github.com/idanre1/scripts.git
-# git clone https://github.com/idanre1/ubuntu_scripts.git
+git clone https://github.com/idanre1/azure_scripts.git
 
 #Making nice linux
 sudo ln -s ~ /nas
@@ -30,10 +30,7 @@ sudo sh -c "echo 'set background=dark' >> /root/.vimrc"
 # -----------------------------------------
 # Python3
 # -----------------------------------------
-mkdir -p ~/Envs
-$aptyes install python3 python3-pip python3-tk virtualenv
-# virtualenv -p /usr/bin/python3 --no-site-packages ~/py3env
-virtualenv -p /usr/bin/python3 ~/Envs/py3env
+source ~/scripts/install_python.sh
 
 # default pyhton env init
 source ~/settings/python_init.sh

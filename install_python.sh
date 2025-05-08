@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# setup
+ENV_NAME=py3env
+ENV_PYTHON=3.13
+
+# miniconda
 if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
     echo "Installing Fresh miniconda"
     CONDA_FILE=miniconda.sh
@@ -10,8 +16,6 @@ if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
 fi
 
 # Create cuda env
-ENV_NAME=py3env
-ENV_PYTHON=3.13
 echo "Building env"
 source ~/miniconda3/etc/profile.d/conda.sh
 # https://rapids.ai/start.html#rapids-release-selector
@@ -29,5 +33,5 @@ mamba install -c conda-forge pyAesCrypt gpustat -y
 # ---------------------------------------------------------
 # User libs
 # ---------------------------------------------------------
-mamba install -c conda-forge numpy pandas pyarrow matplotlib seaborn jupyterlab "dvc[all]" pyAesCrypt -y
+mamba install -c conda-forge numpy pandas numba pyarrow matplotlib seaborn jupyterlab "dvc[all]" pyAesCrypt -y
 

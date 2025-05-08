@@ -10,3 +10,10 @@ tar zxvf julia.tar.gz
 
 echo "*** Installing"
 ln -s ~/julia-1.10.4/bin/julia /usr/bin/julia
+
+if [ -e /nas/.zshrc ]; then
+    echo "export PATH=~/julia-1.10.4/bin:\$PATH" >> /nas/.zshrc
+fi
+if [ -e /nas/.bashrc ]; then
+    echo "export PATH=~/julia-1.10.4/bin:\$PATH" >> /nas/.bashrc
+fi
