@@ -31,6 +31,8 @@ sudo sh -c "echo 'set background=dark' >> /root/.vimrc"
 # Python3
 # -----------------------------------------
 source ~/scripts/install_python.sh
+# $aptyes apt install pipx
+# pipx ensurepath
 
 # default pyhton env init
 source ~/settings/python_init.sh
