@@ -1,10 +1,24 @@
 #!/bin/bash
 
-# setup
+# ---------------------------------------------------------
+# Cmd line args
+# ---------------------------------------------------------
 ENV_NAME=py3env
 ENV_PYTHON=3.13
 
+
+# Check if parameters are provided
+if [ ! -z "$1" ]; then
+    ENV_NAME="$1"
+fi
+
+if [ ! -z "$2" ]; then
+    ENV_PYTHON="$2"
+fi
+
+# ---------------------------------------------------------
 # miniconda
+# ---------------------------------------------------------
 if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
     echo "Installing Fresh miniconda"
     CONDA_FILE=miniconda.sh
@@ -15,7 +29,9 @@ if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
     rm ~/$CONDA_FILE
 fi
 
+# ---------------------------------------------------------
 # Create cuda env
+# ---------------------------------------------------------
 echo "Building env"
 source ~/miniconda3/etc/profile.d/conda.sh
 # https://rapids.ai/start.html#rapids-release-selector
