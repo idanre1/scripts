@@ -44,7 +44,7 @@ ln -s /nas/settings/site-packages.pth /nas/miniconda3/envs/$ENV_NAME/lib/python$
 conda activate $ENV_NAME
 conda install -c conda-forge mamba -y # installs much faster than conda
 pip install dvc dvc-azure chardet
-pip pyAesCrypt gpustat
+pip install pyAesCrypt gpustat
 
 # ---------------------------------------------------------
 # User libs
