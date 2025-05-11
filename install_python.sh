@@ -43,11 +43,11 @@ ln -s /nas/settings/site-packages.pth /nas/miniconda3/envs/$ENV_NAME/lib/python$
 # default installs
 conda activate $ENV_NAME
 conda install -c conda-forge mamba -y # installs much faster than conda
-mamba install -c conda-forge dvc dvc-azure chardet -y
-mamba install -c conda-forge pyAesCrypt gpustat -y
+pip install dvc dvc-azure chardet
+pip pyAesCrypt gpustat
 
 # ---------------------------------------------------------
 # User libs
 # ---------------------------------------------------------
-mamba install -c conda-forge numpy pandas numba pyarrow matplotlib seaborn jupyterlab "dvc[all]" pyAesCrypt -y
+mamba install -c conda-forge numpy pandas numba pyarrow matplotlib seaborn jupyterlab -y
 
