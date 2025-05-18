@@ -39,10 +39,3 @@ source ~/settings/python_init.sh
 cd $py3bin
 source activate
 pip -V
-# part of pandas: pip install python-dateutil # parse iso format dates before python 3.7
-pip install numpy pandas pyarrow matplotlib seaborn jupyterlab "dvc[all]" pyAesCrypt #fastparquet python-snappy
-deactivate
-
-# Allow for user libs (must come after a single pip install)
-PYVER=`\ls -1 ~/Envs/py3env/lib/ | grep "python" | head -1`
-ln -s /nas/settings/site-packages.pth /nas/Envs/py3env/lib/$PYVER/site-packages/site-packages.pth
