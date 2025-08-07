@@ -7,7 +7,8 @@ cd ~
 # Get driver
 echo "*** Get driver"
 #https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20 
-url="https://us.download.nvidia.com/XFree86/Linux-x86_64/525.60.11/NVIDIA-Linux-x86_64-525.60.11.run"
+url="https://us.download.nvidia.com/XFree86/Linux-x86_64/570.181/NVIDIA-Linux-x86_64-570.181.run"
+# url="https://us.download.nvidia.com/XFree86/Linux-x86_64/525.60.11/NVIDIA-Linux-x86_64-525.60.11.run"
 DRIVER_FILE='cuda-driver.run'
 wget -O $DRIVER_FILE $url
 sudo sh $DRIVER_FILE --no-x-check
@@ -15,9 +16,11 @@ sudo sh $DRIVER_FILE --no-x-check
 
 # cuda toolkit:
 #https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions
-CUDA_VER=12.0
+#https://developer.nvidia.com/cuda-toolkit-archive
+CUDA_VER=12.8.1
 echo "*** CUDA toolkit version: $CUDA_VER"
-url="https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda_12.0.0_525.60.13_linux.run"
+#url="https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda_12.0.0_525.60.13_linux.run"
+url="https://developer.download.nvidia.com/compute/cuda/12.8.1/local_installers/cuda_12.8.1_570.124.06_linux.run"
 CUDA_FILE='cuda-toolkit.run'
 wget -O $CUDA_FILE $url
 sudo sh $CUDA_FILE # MAKE SURE TO unclick driver installation!
