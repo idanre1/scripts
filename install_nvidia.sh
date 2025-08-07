@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# nvcc is located in /usr/local/cuda/bin/nvcc
+
 # ***source the file*** for install correctly
 aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 
