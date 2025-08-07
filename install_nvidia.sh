@@ -48,6 +48,9 @@ nvidia-smi
 # https://medium.com/@u.mele.coding/a-beginners-guide-to-nvidia-container-toolkit-on-docker-92b645f92006
 docker --version
 if [ $? -ne 0 ]; then
+    echo "Docker does not exist in the system, please install docker first"
+    echo "Then install nvidia-container-toolkit manually!"
+else
     echo "Docker exists in the system, installing nvidia-container-toolkit"
 
     echo "*** Get nvidia-container-toolkit for docker"
@@ -61,8 +64,5 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
     sudo systemctl restart docker
     echo "*** Verify docker installation"
     sudo docker run --gpus all ubuntu nvidia-smi
-else
-    echo "Docker does not exist in the system, please install docker first"
-    echo "Then install nvidia-container-toolkit manually!"
 fi
 
