@@ -2,6 +2,11 @@
 
 # nvcc is located in /usr/local/cuda/bin/nvcc
 
+# prev driver uninstall steps:
+# sudo apt-get --purge remove "*cublas*" "cuda*" "nsight*" 
+# sudo apt-get --purge remove "*nvidia*"
+# sudo apt autoremove
+
 # ***source the file*** for install correctly
 aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 
