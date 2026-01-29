@@ -38,4 +38,5 @@ source ~/scripts/install_python.sh
 source ~/settings/python_init.sh
 cd $py3bin
 source activate
-pip -V
+python --version
+deactivate

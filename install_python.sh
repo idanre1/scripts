@@ -4,7 +4,7 @@
 # Cmd line args
 # ---------------------------------------------------------
 ENV_NAME=py3env
-ENV_PYTHON=3.13
+ENV_PYTHON=3.14
 
 
 # Check if parameters are provided
@@ -19,35 +19,42 @@ fi
 # ---------------------------------------------------------
 # miniconda
 # ---------------------------------------------------------
-if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
-    echo "Installing Fresh miniconda"
-    CONDA_FILE=miniconda.sh
-    #wget https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh $CONDA_FILE
-    wget -O $CONDA_FILE https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    chmod +x $CONDA_FILE
-    ./$CONDA_FILE -b
-    rm ~/$CONDA_FILE
-fi
+# if [ ! -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
+#     echo "Installing Fresh miniconda"
+#     CONDA_FILE=miniconda.sh
+#     #wget https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh $CONDA_FILE
+#     wget -O $CONDA_FILE https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+#     chmod +x $CONDA_FILE
+#     ./$CONDA_FILE -b
+#     rm ~/$CONDA_FILE
+# fi
+# source ~/miniconda3/etc/profile.d/conda.sh
+# https://rapids.ai/start.html#rapids-release-selector
+# conda create -n $ENV_NAME -c conda-forge  \
+#     python=$ENV_PYTHON -y
 
 # ---------------------------------------------------------
-# Create cuda env
+# uv
 # ---------------------------------------------------------
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv python install $ENV_PYTHON
+
+uv venv /nas/miniconda3/envs/$ENV_NAME --python $ENV_PYTHON # miniconda path for backward compatibility
+python --version
+
 echo "Building env"
-source ~/miniconda3/etc/profile.d/conda.sh
-# https://rapids.ai/start.html#rapids-release-selector
-conda create -n $ENV_NAME -c conda-forge  \
-    python=$ENV_PYTHON -y
 # site libs
 ln -s /nas/settings/site-packages.pth /nas/miniconda3/envs/$ENV_NAME/lib/python${ENV_PYTHON}/site-packages/site-packages.pth
 
 # default installs
-conda activate $ENV_NAME
-conda install -c conda-forge mamba -y # installs much faster than conda
-pip install dvc dvc-azure chardet
-pip install pyAesCrypt gpustat
+source /nas/miniconda3/envs/$ENV_NAME/bin/activate
+uv pip install dvc dvc-azure chardet
+uv pip install pyAesCrypt gpustat
 
 # ---------------------------------------------------------
 # User libs
 # ---------------------------------------------------------
-mamba install -c conda-forge numpy pandas numba pyarrow matplotlib seaborn jupyterlab -y
+uv pip install numpy pandas numba pyarrow matplotlib seaborn jupyterlab
 
+# fold
+deactivate
