@@ -56,5 +56,13 @@ uv pip install pyAesCrypt gpustat
 # ---------------------------------------------------------
 uv pip install numpy pandas numba pyarrow matplotlib seaborn jupyterlab
 
-# fold
+# ---------------------------------------------------------
+# Fold
+# ---------------------------------------------------------
 deactivate
+
+# ---------------------------------------------------------
+# Tools
+# ---------------------------------------------------------
+uv tool install gpustat
+ uv tool install dvc
