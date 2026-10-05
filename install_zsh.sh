@@ -1,4 +1,6 @@
 #!/bin/bash
+# Important! When asked to change default please answer "n"
+# Do you want to change your default shell to zsh? [Y/n] n
 aptyes='sudo DEBIAN_FRONTEND=noninteractive apt-get -y '
 $aptyes update
 
