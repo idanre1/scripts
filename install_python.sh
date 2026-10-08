@@ -37,10 +37,10 @@ fi
 # uv
 # ---------------------------------------------------------
 curl -LsSf https://astral.sh/uv/install.sh | sh
-uv python install $ENV_PYTHON
+$HOME/.local/bin/uv python install $ENV_PYTHON
 
-uv venv /nas/miniconda3/envs/$ENV_NAME --python $ENV_PYTHON # miniconda path for backward compatibility
-python --version
+$HOME/.local/bin/uv venv /nas/miniconda3/envs/$ENV_NAME --python $ENV_PYTHON # miniconda path for backward compatibility
+$HOME/.local/bin/uv run python -c 'import platform; print(platform.python_version())'
 
 echo "Building env"
 # site libs
@@ -48,13 +48,13 @@ ln -s /nas/settings/site-packages.pth /nas/miniconda3/envs/$ENV_NAME/lib/python$
 
 # default installs
 source /nas/miniconda3/envs/$ENV_NAME/bin/activate
-uv pip install dvc dvc-azure chardet
-uv pip install pyAesCrypt gpustat
+$HOME/.local/bin/uv pip install dvc dvc-azure chardet
+$HOME/.local/bin/uv pip install pyAesCrypt gpustat
 
 # ---------------------------------------------------------
 # User libs
 # ---------------------------------------------------------
-uv pip install numpy pandas numba pyarrow matplotlib seaborn jupyterlab
+$HOME/.local/bin/uv pip install numpy pandas numba pyarrow matplotlib seaborn jupyterlab
 
 # ---------------------------------------------------------
 # Fold
@@ -64,5 +64,5 @@ deactivate
 # ---------------------------------------------------------
 # Tools
 # ---------------------------------------------------------
-uv tool install gpustat
- uv tool install dvc
+$HOME/.local/bin/uv tool install gpustat
+$HOME/.local/bin/uv tool install dvc
